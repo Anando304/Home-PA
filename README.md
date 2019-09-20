@@ -23,6 +23,24 @@ about the last time someone opened your main door, status of backyard motion (if
 
 - Hardware/Sensor systems: Arduino and breadboard circuits
 
+**How to setup**
+
+1. Clone the repository and open Arduino-Sensor Python folder. Compile and upload the ArduinoPythonRead.ino code to your Arduino UNO. (Make sure you remember which COM port it is connected to)
+
+2. Open ArduinoPythonRead.py script and navigate to line 27 with the serial COM ports. Rename 'COM3' to the one you made note of earlier.
+
+3. Save and run the script at all times. This will constantly read for changes in the Arduino inputs.
+
+4. Navigate to DialogFlow folder and launch ngrok.exe. Type in the following command
+```
+ngrok http 8888
+```
+5. This generates a ngrok url. This activates the ability for POST/GET requests to be sent from Dialogflow to the Flask server via DialogFlow webhook to the auto-generated ngrok url.
+
+6. Copy and paste this to DialogFlow fullfillments webhook section.
+
+7. Run 'Dialog.py' and have it running at all times. This will be the Flask server that is responsible for getting POST/GET requests from dialogflow and creating an appropriate response.
+
 **Sample Conversation**
 <div>
   <div style="float:left;">
